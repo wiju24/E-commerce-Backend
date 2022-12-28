@@ -14,8 +14,6 @@ router.get('/', async (req, res) => {
         ]
       }]
     });
-    // console.log(pullCategory)
-    // console.log(typeof pullCategory)
     res.status(200).json(pullCategory);
   } catch (err) {
     res.status(500).json(err);
@@ -61,10 +59,10 @@ router.put('/:id', async (req, res) => {
       where: {id: req.params.id}
     });
 
-    res.status(200).json(updateCategoryById);}
-    catch (err){
-      res.status(500).json(err)
-    }
+    res.status(200).json(updateCategoryById);
+  } catch (err){
+    res.status(500).json(err)
+  }
 });
 
   // delete a category by its `id` value

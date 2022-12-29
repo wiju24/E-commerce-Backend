@@ -31,10 +31,10 @@ router.get('/:id', async (req, res) => {
     });
     
     if (!oneProductById){
-      res.status(404).json({message: 'Incorrect Id'})
+      res.status(404).json({message: 'Incorrect Id'});
       return;
     }
-    res,status(200).json(oneProductById);
+    res.status(200).json(oneProductById);
   } catch (err){
     res.status(500).json(err);
   }
@@ -50,7 +50,7 @@ router.post('/', (req, res) => {
       tagIds: [1, 2, 3, 4]
     }
   */
-  Product.create(req.body)
+  Product.create(req.body, {include:[{model:Tag}]})
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
       if (req.body.tagIds.length) {

@@ -7,12 +7,12 @@ const { Tag, Product, ProductTag } = require('../../models');
   // be sure to include its associated Product data
 router.get('/', async (req, res) => {
   try {
-    const allTags = await Tag.findAll ({
+    const allTags = await Tag.findAll (req.body, {
       include: [{model:Product, attributes: ['product_name']}],
       attributes: ['id','product_name', 'price', 'stock', 'category_id']
-    })
+    });
     res.status(200).json(allTags);
-  } catch(err) {
+  } catch (err) {
     res.status(500).json(err);
   }
 });
@@ -33,17 +33,17 @@ router.get('/:id', async (req, res) => {
       return;
     }
 
-    res.status(200).json(singleTag);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+      res.status(200).json(singleTag);
+    } catch (err) {
+      res.status(500).json(err);
+    }
 });
 
   // create a new tag
 router.post('/', async (req, res) => {
   try {
     const newTag = await Tag.create(req.body);
-    res.status(201).json(newTag); 
+    res.status(200).json(newTag); 
   } catch (err) {
     res.status(500).json(err);
   }

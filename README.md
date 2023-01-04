@@ -76,7 +76,7 @@ npm run seed
 
 ## Socials
 
-For details regarding the specific application, proceed to the repository: https://github.com/wiju24/Profile-Generator 
+For details regarding the specific application, proceed to the repository: https://github.com/wiju24/E-commerce-Backend
 
 For details regarding the Github profile, click on the link: https://github.com/wiju24
 
